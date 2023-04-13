@@ -5,7 +5,7 @@ function Footer() {
     <footer>
       <p>
         Made by 
-        <strong><a href="https://github.com/xinweny">xinweny</a></strong> 
+        <strong> <a href="https://github.com/xinweny">xinweny</a> </strong>
         in 2023
       </p>
       <a href="https://github.com/xinweny/where-is-wally">
