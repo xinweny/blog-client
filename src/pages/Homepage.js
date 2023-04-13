@@ -1,10 +1,14 @@
-import React from 'react'
+import React from 'react';
+
+import LandingBanner from '../components/LandingBanner';
+import TopStories from '../components/TopStories';
 
 function Homepage() {
   return (
-    <>
-      <h2>Home</h2>
-    </>
+    <main>
+      <LandingBanner />
+      <TopStories />
+    </main>
   );
 }
 
