@@ -2,27 +2,24 @@ import React, { useState, useEffect } from 'react';
 
 import PostCardMini from './PostCardMini';
 
-function TopStories() {
+function PostsOverview() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    fetch('https://blog-api-5lv9.onrender.com/api/posts?published=true&likesCount=desc&limit=10')
+    fetch('https://blog-api-5lv9.onrender.com/api/posts?published=true&createdAt=desc&limit=50')
       .then(res => res.json())
       .then(res => {
         setPosts(res.data.posts);
       });
   }, []);
-
   return (
     <div>
-      <h3>Trending</h3>
-      <div>
-        {posts.map(post => (
-          <PostCardMini key={post._id} post={post} />
-        ))}
-      </div>
+      <h3>Recent Stories</h3>
+      {posts.map((post) => (
+        <PostCardMini key={post._id} post={post} />
+      ))}
     </div>
   );
 }
 
-export default TopStories;
+export default PostsOverview;
