@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { sendReq } from '../utils/helpers';
+
 function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -12,11 +14,7 @@ function LoginPage() {
     e.preventDefault();
 
     try {
-      const res = await fetch('https://blog-api-5lv9.onrender.com/api/login', {
-        method: 'POST',
-        headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
-      });
+      const res = await sendReq('POST', 'login', { email, password });
 
       const json = await res.json();
 
