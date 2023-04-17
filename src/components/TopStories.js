@@ -5,7 +5,7 @@ import { useFetch } from '../utils/hooks';
 import PostCardMini from './PostCardMini';
 
 function TopStories() {
-  const posts = useFetch('posts?published=true&likesCount=desc&limit=10');
+  const [posts] = useFetch('posts?published=true&likesCount=desc&limit=10');
 
   return (
     <div>
