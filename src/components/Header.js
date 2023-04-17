@@ -1,22 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+
+import { useStorageListener } from '../utils/hooks';
 
 import NavBar from './NavBar';
 
 function Header() {
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    const getUserData = () => {
-      const item = localStorage.getItem('user');
-      console.log(item);
-      if (item) setUser(JSON.parse(item));
-    };
-
-    window.addEventListener('storage', getUserData);
-
-    return () => window.removeEventListener('storage', getUserData);
-  }, []);
+  const user = useStorageListener('user');
 
   return (
     <header>
@@ -27,7 +17,7 @@ function Header() {
         </div>
       </Link>
       {user ? <Link to={`/users/${user.id}`}>{user.username}</Link> : null}
-      <NavBar user={user} setUser={setUser} />
+      <NavBar user={user} />
     </header>
   );
 }
