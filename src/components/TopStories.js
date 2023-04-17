@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+
+import { useFetch } from '../utils/hooks';
 
 import PostCardMini from './PostCardMini';
 
 function TopStories() {
   const [posts, setPosts] = useState([]);
 
-  useEffect(() => {
-    fetch('https://blog-api-5lv9.onrender.com/api/posts?published=true&likesCount=desc&limit=10')
-      .then(res => res.json())
-      .then(res => {
-        setPosts(res.data.posts);
-      });
-  }, []);
+  useFetch(
+    'https://blog-api-5lv9.onrender.com/api/posts?published=true&likesCount=desc&limit=10',
+    json => setPosts(json.data.posts),
+  );
 
   return (
     <div>
