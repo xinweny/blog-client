@@ -4,11 +4,11 @@ import { PropTypes as PT } from 'prop-types';
 
 import LogoutButton from './LogoutButton';
 
-function NavBar({ user, setUser }) {
+function NavBar({ user }) {
   return (
     <nav>
       {user
-      ? <LogoutButton setUser={setUser} />
+      ? <LogoutButton />
       : <>
         <Link to="/login">Login</Link>
         <Link to="/signup">Sign Up</Link>
