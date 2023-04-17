@@ -30,7 +30,7 @@ const useFetch = (query, deps = []) => {
     }
   }, deps);
 
-  return data;
+  return [data, setData];
 };
 
 export {
