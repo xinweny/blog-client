@@ -8,9 +8,7 @@ function PostsOverview() {
   useEffect(() => {
     fetch('https://blog-api-5lv9.onrender.com/api/posts?published=true&createdAt=desc&limit=50')
       .then(res => res.json())
-      .then(res => {
-        setPosts(res.data.posts);
-      });
+      .then(json => setPosts(json.data.posts));
   }, []);
   return (
     <div>
