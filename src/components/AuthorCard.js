@@ -1,7 +1,13 @@
 import React from 'react';
 import { PropTypes as PT } from 'prop-types';
 
-function AuthorCard({ author }) {
+import { useFetch } from '../utils/hooks';
+
+function AuthorCard({ authorId }) {
+  const [author] = useFetch(`users/${authorId}`);
+
+  if (!author) return null;
+
   return (
     <div>
       <p>{author.username}</p>
@@ -10,9 +16,7 @@ function AuthorCard({ author }) {
 }
 
 AuthorCard.propTypes = {
-  author: PT.shape({
-    username: PT.string.isRequired,
-  }),
+  authorId: PT.string.isRequired,
 }
 
 export default AuthorCard;

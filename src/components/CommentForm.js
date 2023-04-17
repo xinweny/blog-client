@@ -3,8 +3,9 @@ import { PropTypes as PT } from 'prop-types';
 
 import { sendReq } from '../utils/helpers';
 
-function CommentForm({ postId, user, setComments }) {
+function CommentForm({ postId, setComments }) {
   const [text, setText] = useState('');
+  const user = JSON.parse(localStorage.getItem('user'));
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -36,8 +37,9 @@ function CommentForm({ postId, user, setComments }) {
         placeholder="Post your thoughts..."
         value={text}
         onChange={e => setText(e.target.value)}
+        required
       />
-      <p>Posting as {user.username}</p>
+      <p>Post as {user.username}</p>
       <button type="submit">Submit</button>
     </form>
   )
@@ -45,10 +47,6 @@ function CommentForm({ postId, user, setComments }) {
 
 CommentForm.propTypes = {
   postId: PT.string.isRequired,
-  user: PT.shape({
-    id: PT.string.isRequired,
-    username: PT.string.isRequired,
-  }),
   setComments: PT.func.isRequired,
 }
 

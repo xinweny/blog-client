@@ -25,7 +25,7 @@ function LikeButton({ postId }) {
 
   return (
     <div>
-      <button onClick={handleClick} disabled={!!user}>
+      <button onClick={handleClick} disabled={!user}>
         <img src="#" alt="Like" />
       </button>
       <p>{likesCount}</p>
