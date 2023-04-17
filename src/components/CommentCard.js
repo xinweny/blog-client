@@ -6,7 +6,7 @@ function CommentCard({ comment }) {
   return (
     <div>
       <p>{comment.author.username}</p>
-      <p>{format(parseISO(comment.createdAt), 'dd MMM, Y')} at {format(parseISO(comment.createdAt), 'hh:mm')}</p>
+      <p>{format(parseISO(comment.createdAt), 'dd MMM, Y')} at {format(parseISO(comment.createdAt), 'HH:mm')}</p>
       <p>{comment.text}</p>
     </div>
   );
