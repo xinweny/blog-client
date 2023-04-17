@@ -14,17 +14,19 @@ const useStorageListener = key => {
     return () => window.removeEventListener('storage', getData);
   }, []);
 
-  console.log(data);
-
   return data;
 };
 
-const useFetch = (path, processData) => {
+const useFetch = (path) => {
+  const [data, setData] = useState();
+
   useEffect(() => {
     fetch(path)
       .then(res => res.json())
-      .then(processData);
+      .then(json => setData(json.data));
   }, []);
+
+  return data;
 };
 
 export {
