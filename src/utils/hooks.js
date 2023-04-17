@@ -9,6 +9,8 @@ const useStorageListener = key => {
       setData(JSON.parse(item));
     };
 
+    getData();
+
     window.addEventListener('storage', getData);
 
     return () => window.removeEventListener('storage', getData);
@@ -17,14 +19,16 @@ const useStorageListener = key => {
   return data;
 };
 
-const useFetch = query => {
+const useFetch = (query, deps = []) => {
   const [data, setData] = useState();
 
   useEffect(() => {
-    fetch(`https://blog-api-5lv9.onrender.com/api/${query}`)
+    if (query) {
+      fetch(`https://blog-api-5lv9.onrender.com/api/${query}`)
       .then(res => res.json())
       .then(json => setData(json.data));
-  }, []);
+    }
+  }, deps);
 
   return data;
 };
