@@ -17,11 +17,11 @@ const useStorageListener = key => {
   return data;
 };
 
-const useFetch = (path) => {
+const useFetch = query => {
   const [data, setData] = useState();
 
   useEffect(() => {
-    fetch(path)
+    fetch(`https://blog-api-5lv9.onrender.com/api/${query}`)
       .then(res => res.json())
       .then(json => setData(json.data));
   }, []);
