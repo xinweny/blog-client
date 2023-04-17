@@ -6,13 +6,15 @@ const useStorageListener = key => {
   useEffect(() => {
     const getData = () => {
       const item = localStorage.getItem(key);
-      if (item) setData(JSON.parse(item));
+      setData(JSON.parse(item));
     };
 
     window.addEventListener('storage', getData);
 
     return () => window.removeEventListener('storage', getData);
   }, []);
+
+  console.log(data);
 
   return data;
 };

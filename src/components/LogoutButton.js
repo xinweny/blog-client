@@ -1,24 +1,18 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { PropTypes as PT } from 'prop-types';
 
-function LogoutButton({ setUser }) {
+function LogoutButton() {
   const navigate = useNavigate();
 
   const handleLogout = () => {
     localStorage.clear();
-    setUser(null);
+    window.dispatchEvent(new Event('storage'));
     navigate('/');
   };
 
   return (
     <button onClick={handleLogout}>Sign Out</button>
   )
-}
-
-
-LogoutButton.propTypes = {
-  setUser: PT.func,
 }
 
 export default LogoutButton;
