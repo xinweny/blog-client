@@ -13,6 +13,7 @@ function NavBar({ user }) {
         <Link to="/login">Login</Link>
         <Link to="/signup">Sign Up</Link>
       </>}
+      <a href="">Write for Us</a>
     </nav>
   );
 }
