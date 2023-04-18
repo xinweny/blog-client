@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { PropTypes as PT } from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import { sendReq } from '../utils/helpers';
 
@@ -29,13 +30,16 @@ function CommentForm({ postId, setComments }) {
     }
   };
 
+  if (!user) return (
+    <p><Link to="/login">Log in</Link> to post a comment!</p>
+  );
+
   return (
     <form onSubmit={handleSubmit}>
       <textarea
         name="text"
         id="text"
         placeholder="Post your thoughts..."
-        value={text}
         onChange={e => setText(e.target.value)}
         required
       />
