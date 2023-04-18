@@ -2,32 +2,12 @@ import React from 'react';
 import { format, parseISO } from 'date-fns';
 import { PropTypes as PT } from 'prop-types';
 
-import { sendReq, getStorageAuth } from '../utils/helpers';
-
-function CommentCard({ comment, setComments }) {
-  const { user, token } = getStorageAuth();
-
-  const handleDelete = async () => {
-    try {
-      const res = await sendReq('DELETE', `posts/${comment.post}/comments/${comment._id}`, {}, token);
-
-      if (res.status === 200) {
-        setComments(prev => prev.filter(comment => comment._id !== comment._id));
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
+function CommentCard({ comment }) {
   return (
     <div>
       <p>{comment.author.username}</p>
       <p>{format(parseISO(comment.createdAt), 'dd MMM, Y')} at {format(parseISO(comment.createdAt), 'HH:mm')}</p>
       <p>{comment.text}</p>
-      {user.id === comment.author._id
-        ? <button onClick={handleDelete}>x</button>
-        : null
-      }
     </div>
   );
 }

@@ -15,7 +15,7 @@ function CommentSection({ postId }) {
     <div>
       <h3>Comments ({comments.length})</h3>
       {comments.map(comment => (
-        <CommentCard key={comment._id} comment={comment} setComments={setComments} />
+        <CommentCard key={comment._id} comment={comment} />
       ))}
       <CommentForm postId={postId} setComments={setComments} />
     </div>
