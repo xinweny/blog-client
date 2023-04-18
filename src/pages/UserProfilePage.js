@@ -4,19 +4,29 @@ import { format, parseISO } from 'date-fns';
 
 import { useFetch } from '../utils/hooks';
 
+import PostCard from '../components/PostCard';
+
 function UserProfilePage() {
   const { id } = useParams();
+
   const [user] = useFetch(`users/${id}`);
+  const [posts] = useFetch(`users/${id}/posts`);
 
   return (
     <main>
-      {user
+      {user && posts
       ? <>
         <h2>{user.username}</h2>
-        <p>Joined on {format(parseISO(user.createdAt), 'dd MMM Y')}</p>
-        <h3>Articles</h3>
-        
-      </> : null}
+        <p>Joined on {format(parseISO(user.createdAt), 'd MMM Y')}</p>
+        <h3>Contributions</h3>
+        <div>
+          {posts.map(post => <PostCard
+            key={post._id}
+            post={{...post, author: { _id: user._id, username: user.username }}}
+          />)}
+        </div>
+      </>
+      : null}
     </main>
   );
 }
