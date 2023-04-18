@@ -2,17 +2,15 @@ import React from 'react'
 import { PropTypes as PT } from 'prop-types';
 
 import { useFetch } from '../utils/hooks';
-import { sendReq } from '../utils/helpers';
+import { sendReq, getStorageAuth } from '../utils/helpers';
 
 function LikeButton({ postId }) {
   const [likesCount, setLikesCount] = useFetch(`posts/${postId}/likes?postId=${postId}`);
 
-  const user = JSON.parse(localStorage.getItem('user'));
+  const { user, token } = getStorageAuth();
 
   const handleClick = async () => {
     try {
-      const token = localStorage.getItem('token');
-
       const res = await sendReq('POST', `posts/${postId}/likes`, { postId }, token);
 
       if (res.status === 200) {

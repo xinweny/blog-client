@@ -18,13 +18,13 @@ const saveDataAndTriggerStorage = json => {
   window.dispatchEvent(new Event('storage'));
 };
 
-const getStorageItem = (key, isObj) => {
-  if (isObj) return JSON.parse(localStorage.getItem(key));
-  return localStorage.getItem(key);
-};
+const getStorageAuth = () => ({
+  user: JSON.parse(localStorage.getItem('user')),
+  token: localStorage.getItem('token'),
+});
 
 export {
   sendReq,
   saveDataAndTriggerStorage,
-  getStorageItem,
+  getStorageAuth,
 };

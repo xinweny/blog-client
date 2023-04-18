@@ -2,12 +2,10 @@ import React from 'react';
 import { format, parseISO } from 'date-fns';
 import { PropTypes as PT } from 'prop-types';
 
-import { sendReq, getStorageItem } from '../utils/helpers';
+import { sendReq, getStorageAuth } from '../utils/helpers';
 
 function CommentCard({ comment, setComments }) {
-  const user = getStorageItem('user', true);
-  const token = getStorageItem('token');
-  console.log(comment);
+  const { user, token } = getStorageAuth();
 
   const handleDelete = async () => {
     try {
