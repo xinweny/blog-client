@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import { parseISO, format } from 'date-fns';
 import { PropTypes as PT } from 'prop-types';
 
-function PostCardMini({ post }) {
+function PostCard({ post }) {
+  const uniqueTags = [...new Set(post.tags)];
+
   return (
     <div className="post-card">
       <Link to={`/posts/${post._id}`}>
@@ -11,13 +13,16 @@ function PostCardMini({ post }) {
       </Link>
       <p>{post.author.username}</p>
       <p>{format(parseISO(post.createdAt), 'dd MMM Y')}</p>
+      <div>
+        {uniqueTags.map(tag => <p key={tag}>{tag}</p>)}
+      </div>
       <p>L{post.likesCount}</p>
       <p>C{post.commentsCount}</p>
     </div>
   );
 }
 
-PostCardMini.propTypes = {
+PostCard.propTypes = {
   post: PT.shape({
     _id: PT.string.isRequired,
     title: PT.string.isRequired,
@@ -28,7 +33,8 @@ PostCardMini.propTypes = {
     }),
     likesCount: PT.number.isRequired,
     commentsCount: PT.number.isRequired,
+    tags: PT.arrayOf(PT.string),
   }),
 };
 
-export default PostCardMini;
+export default PostCard;

@@ -7,6 +7,7 @@ import PostPage from '../pages/PostPage';
 import SearchResultPage from '../pages/SearchResultPage';
 import LoginPage from '../pages/LoginPage';
 import SignupPage from '../pages/SignupPage';
+import UserProfilePage from '../pages/UserProfilePage';
 import Footer from './Footer';
 
 function RouteSwitch() {
@@ -17,8 +18,9 @@ function RouteSwitch() {
         <Route path="/" element={<Homepage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
-        <Route path="/posts/:id" element={<PostPage />} />
         <Route path="/search" element={<SearchResultPage />} />
+        <Route path="/posts/:id" element={<PostPage />} />
+        <Route path="/users/:id" element={<UserProfilePage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

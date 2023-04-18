@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useFetch } from '../utils/hooks';
 
-import PostCardMini from './PostCardMini';
+import PostCard from './PostCard';
 
 function TopStories() {
   const [posts] = useFetch('posts?published=true&likesCount=desc&limit=10');
@@ -13,7 +13,7 @@ function TopStories() {
       <div>
         {posts
           ? posts.map(post => (
-            <PostCardMini key={post._id} post={post} />
+            <PostCard key={post._id} post={post} />
           )) : null}
       </div>
     </div>
