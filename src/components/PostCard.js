@@ -12,7 +12,7 @@ function PostCard({ post }) {
         <h4>{post.title}</h4>
       </Link>
       <p>{post.author.username}</p>
-      <p>{format(parseISO(post.createdAt), 'dd MMM Y')}</p>
+      <p>{format(parseISO(post.createdAt), 'd MMM Y')}</p>
       <div>
         {uniqueTags.map(tag => <p key={tag}>{tag}</p>)}
       </div>
@@ -27,10 +27,13 @@ PostCard.propTypes = {
     _id: PT.string.isRequired,
     title: PT.string.isRequired,
     createdAt: PT.string.isRequired,
-    author: PT.shape({
-      _id: PT.string.isRequired,
-      username: PT.string.isRequired,
-    }),
+    author: PT.oneOfType(
+      PT.string.isRequired,
+      PT.shape({
+        _id: PT.string.isRequired,
+        username: PT.string.isRequired,
+      }),
+    ),
     likesCount: PT.number.isRequired,
     commentsCount: PT.number.isRequired,
     tags: PT.arrayOf(PT.string),
