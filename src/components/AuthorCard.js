@@ -1,5 +1,6 @@
 import React from 'react';
 import { PropTypes as PT } from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import { useFetch } from '../utils/hooks';
 
@@ -10,7 +11,7 @@ function AuthorCard({ authorId }) {
 
   return (
     <div>
-      <p>{author.username}</p>
+    <Link to={`/users/${author._id}`}><p>{author.username}</p></Link>
     </div>
   );
 }
