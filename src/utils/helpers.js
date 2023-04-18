@@ -10,8 +10,15 @@ const sendReq = async (verb, query, data, token) => {
   });
 
   return res;
+};
+
+const saveDataAndTriggerStorage = json => {
+  localStorage.setItem('token', json.data.token);
+  localStorage.setItem('user', JSON.stringify(json.data.user));
+  window.dispatchEvent(new Event('storage'));
 }
 
 export {
   sendReq,
+  saveDataAndTriggerStorage,
 };
