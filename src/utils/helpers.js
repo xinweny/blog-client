@@ -16,9 +16,15 @@ const saveDataAndTriggerStorage = json => {
   localStorage.setItem('token', json.data.token);
   localStorage.setItem('user', JSON.stringify(json.data.user));
   window.dispatchEvent(new Event('storage'));
-}
+};
+
+const getStorageItem = (key, isObj) => {
+  if (isObj) return JSON.parse(localStorage.getItem(key));
+  return localStorage.getItem(key);
+};
 
 export {
   sendReq,
   saveDataAndTriggerStorage,
+  getStorageItem,
 };
