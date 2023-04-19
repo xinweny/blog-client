@@ -10,7 +10,7 @@ function UserProfilePage() {
   const { id } = useParams();
 
   const [user] = useFetch(`users/${id}`);
-  const [posts] = useFetch(`users/${id}/posts`);
+  const [posts] = useFetch(`posts?author=${id}&published=true`);
 
   return (
     <main>
