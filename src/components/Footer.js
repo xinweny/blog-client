@@ -8,7 +8,7 @@ function Footer() {
         <strong> <a href="https://github.com/xinweny">xinweny</a> </strong>
         in 2023
       </p>
-      <a href="https://github.com/xinweny/where-is-wally">
+      <a href="https://github.com/xinweny/blog-client">
         <img src="" alt="Github" />
       </a>
     </footer>
