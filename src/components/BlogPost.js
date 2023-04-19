@@ -1,6 +1,9 @@
 import React from 'react';
 import { parseISO, format } from 'date-fns';
 import { PropTypes as PT } from 'prop-types';
+import parse from 'html-react-parser';
+
+import { sanitize } from '../utils/helpers';
 
 function BlogPost({ post }) {
   return (
@@ -11,7 +14,7 @@ function BlogPost({ post }) {
         ? <p>Modified {format(parseISO(post.updatedAt), 'do MMMM Y, hh:mm a')}</p>
         : null
       }
-      <p>{post.text}</p>
+      {parse(sanitize(post.text))}
     </div>
   );
 }
