@@ -7,7 +7,7 @@ import CommentCard from './CommentCard';
 import CommentForm from './CommentForm';
 
 function CommentSection({ postId }) {
-  const [comments, setComments] = useFetch(`posts/${postId}/comments`);
+  const [comments, setComments] = useFetch(`comments?post=${postId}`);
 
   if (!comments) return null;
 

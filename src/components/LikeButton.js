@@ -5,13 +5,13 @@ import { useFetch } from '../utils/hooks';
 import { sendReq, getStorageAuth } from '../utils/helpers';
 
 function LikeButton({ postId }) {
-  const [likesCount, setLikesCount] = useFetch(`posts/${postId}/likes?postId=${postId}`);
+  const [likesCount, setLikesCount] = useFetch(`likes?post=${postId}`);
 
   const { user, token } = getStorageAuth();
 
   const handleClick = async () => {
     try {
-      const res = await sendReq('POST', `posts/${postId}/likes`, { postId }, token);
+      const res = await sendReq('POST', `likes?post=${postId}`, { postId }, token);
 
       if (res.status === 200) {
         setLikesCount(prev => prev + 1);

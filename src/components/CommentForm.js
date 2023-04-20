@@ -13,7 +13,7 @@ function CommentForm({ postId, setComments }) {
 
     try {
       const token = localStorage.getItem('token');
-      const res = await sendReq('POST', `posts/${postId}/comments`, { text }, token);
+      const res = await sendReq('POST', `comments?post=${postId}`, { text }, token);
 
       if (res.status === 200) {
         const comment = (await res.json()).data;
