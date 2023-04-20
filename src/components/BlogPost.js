@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { parseISO, format } from 'date-fns';
 import { PropTypes as PT } from 'prop-types';
 import parse from 'html-react-parser';
 
-import { sanitize } from '../utils/helpers';
-
 function BlogPost({ post }) {
+  const [htmlString, setHtmlString] = useState('');
+
+  useEffect(() => {
+    if (post) {
+      const parser = new DOMParser();
+      const decodedString = parser.parseFromString(`<!doctype html><body>${post.text}`, 'text/html').body.textContent;
+      console.log(decodedString);
+      setHtmlString(decodedString);
+    }
+  }, []);
+
   return (
     <div>
       <h2>{post.title}</h2>
@@ -14,7 +23,7 @@ function BlogPost({ post }) {
         ? <p>Modified {format(parseISO(post.updatedAt), 'do MMMM Y, hh:mm a')}</p>
         : null
       }
-      {parse(sanitize(post.text))}
+      <div>{parse(htmlString)}</div>
     </div>
   );
 }

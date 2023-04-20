@@ -2,3 +2,12 @@
   padding: 0;
   margin: 0;
 }
+
+li {
+  display: list-item;
+}
+
+ol li {
+  list-style-type: decimal;
+  list-style-position: inside;
+}
