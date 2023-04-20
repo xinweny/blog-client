@@ -3,6 +3,8 @@ import { parseISO, format } from 'date-fns';
 import { PropTypes as PT } from 'prop-types';
 import parse from 'html-react-parser';
 
+import { sanitize } from '../utils/helpers';
+
 function BlogPost({ post }) {
   const [htmlString, setHtmlString] = useState('');
 
@@ -10,8 +12,8 @@ function BlogPost({ post }) {
     if (post) {
       const parser = new DOMParser();
       const decodedString = parser.parseFromString(`<!doctype html><body>${post.text}`, 'text/html').body.textContent;
-      console.log(decodedString);
-      setHtmlString(decodedString);
+
+      setHtmlString(sanitize(decodedString));
     }
   }, []);
 
