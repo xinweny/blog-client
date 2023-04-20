@@ -42,6 +42,7 @@ function CommentForm({ postId, setComments }) {
         placeholder="Post your thoughts..."
         onChange={e => setText(e.target.value)}
         required
+        value={text}
       />
       <p>Post as {user.username}</p>
       <button type="submit">Submit</button>
