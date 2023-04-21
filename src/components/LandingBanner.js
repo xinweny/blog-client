@@ -1,5 +1,7 @@
 import React from 'react';
 
+import '../styles/LandingBanner.css';
+
 function LandingBanner() {
   return (
     <div className="landing-banner">

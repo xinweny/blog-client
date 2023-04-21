@@ -4,11 +4,15 @@ import LandingBanner from '../components/LandingBanner';
 import TopStories from '../components/TopStories';
 import PostsOverview from '../components/PostsOverview';
 
+import '../styles/Homepage.css';
+
 function Homepage() {
   return (
-    <main>
-      <LandingBanner />
-      <TopStories />
+    <main className="homepage">
+      <div className="home-tophalf">
+        <LandingBanner />
+        <TopStories />
+      </div>
       <PostsOverview />
     </main>
   );

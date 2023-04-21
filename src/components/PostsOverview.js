@@ -5,17 +5,21 @@ import { useFetch, useLoading } from '../utils/hooks';
 import PostCard from './PostCard';
 import Spinner from './Spinner';
 
+import '../styles/PostsOverview.css';
+
 function PostsOverview() {
   const [posts] = useFetch('posts?published=true&likesCount=desc&limit=10');
   const [loaded] = useLoading(posts);
   
   return (
-    <div>
-      <h3>Recent Stories</h3>
+    <div className="posts-overview">
+      <h2>Recent Stories</h2>
       {loaded 
-        ? posts.map((post) => (
-          <PostCard key={post._id} post={post} />
-        )) : <Spinner options={{ type: 'ellipsis' }} />}
+        ? <div className="post-cards">
+          {posts.map((post) => (
+            <PostCard key={post._id} post={post} />
+          ))}
+        </div> : <Spinner options={{ type: 'ellipsis' }} />}
     </div>
   );
 }
