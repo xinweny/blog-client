@@ -3,11 +3,14 @@
   margin: 0;
 }
 
-li {
-  display: list-item;
+a {
+  text-decoration: none;
 }
 
-ol li {
-  list-style-type: decimal;
-  list-style-position: inside;
+a:visited {
+  color: inherit;
+}
+
+button:hover {
+  cursor: pointer;
 }
