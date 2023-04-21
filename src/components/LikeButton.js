@@ -5,16 +5,34 @@ import { useFetch } from '../utils/hooks';
 import { sendReq, getStorageAuth } from '../utils/helpers';
 
 function LikeButton({ postId }) {
-  const [likesCount, setLikesCount] = useFetch(`likes?post=${postId}`);
-
   const { user, token } = getStorageAuth();
 
-  const handleClick = async () => {
+  const [likesCount, setLikesCount] = useFetch(`likes?post=${postId}&count=true`);
+
+  const [like, setLike] = useFetch(`likes?post=${postId}&user=${user.id}`);
+
+  const handleLike = async () => {
     try {
-      const res = await sendReq('POST', `likes?post=${postId}`, { postId }, token);
+      const res = await sendReq('POST', `likes`, { post: postId }, token);
+
+      const json = await res.json();
 
       if (res.status === 200) {
         setLikesCount(prev => prev + 1);
+        setLike(json.data);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleUnlike = async () => {
+    try {
+      const res = await sendReq('DELETE', `likes`, { post: postId }, token);
+
+      if (res.status === 200) {
+        setLikesCount(prev => prev - 1);
+        setLike(null);
       }
     } catch (err) {
       console.log(err);
@@ -23,9 +41,10 @@ function LikeButton({ postId }) {
 
   return (
     <div>
-      <button onClick={handleClick} disabled={!user}>
-        <img src="#" alt="Like" />
-      </button>
+      {!like
+        ? <button onClick={handleLike} disabled={!user}>Like</button>
+        : <button onClick={handleUnlike} disabled={!user}>Unlike</button>
+      }
       <p>{likesCount}</p>
     </div>
   );
