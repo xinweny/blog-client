@@ -26,7 +26,8 @@ const useFetch = (query, deps = []) => {
     if (query) {
       fetch(`https://blog-api-5lv9.onrender.com/api/${query}`)
       .then(res => res.json())
-      .then(json => setData(json.data));
+      .then(json => setData(json.data))
+      .catch(err => setData(err));
     }
   }, deps);
 
