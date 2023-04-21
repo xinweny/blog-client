@@ -1,5 +1,8 @@
 import React from 'react';
 
+import githubLogo from '../assets/github-logo.svg';
+import '../styles/Footer.css';
+
 function Footer() {
   return (
     <footer>
@@ -9,7 +12,7 @@ function Footer() {
         in 2023
       </p>
       <a href="https://github.com/xinweny/blog-client">
-        <img src="" alt="Github" />
+        <img src={githubLogo} alt="Github" />
       </a>
     </footer>
   );
