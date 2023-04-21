@@ -33,7 +33,18 @@ const useFetch = (query, deps = []) => {
   return [data, setData];
 };
 
+const useLoading = data => {
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    if (data) setLoaded(true);
+  }, [data]);
+
+  return [loaded, setLoaded];
+};
+
 export {
   useStorageListener,
   useFetch,
+  useLoading,
 };

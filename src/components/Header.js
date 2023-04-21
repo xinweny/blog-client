@@ -5,6 +5,8 @@ import { useStorageListener } from '../utils/hooks';
 
 import NavBar from './NavBar';
 
+import '../styles/Header.css';
+
 function Header() {
   const user = useStorageListener('user');
 
