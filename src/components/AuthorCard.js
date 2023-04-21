@@ -11,7 +11,7 @@ function AuthorCard({ authorId }) {
 
   return (
     <div>
-    <Link to={`/users/${author._id}`}><p>{author.username}</p></Link>
+      <Link to={`/users/${author._id}`}><p>{author.username}</p></Link>
     </div>
   );
 }
