@@ -19,7 +19,7 @@ function LikeButton({ postId }) {
 
       if (res.status === 200) {
         setLikesCount(prev => prev + 1);
-        setLike(json.data);
+        setLike([json.data]);
       }
     } catch (err) {
       console.log(err);
@@ -41,7 +41,7 @@ function LikeButton({ postId }) {
 
   return (
     <div>
-      {!like
+      {!like || like.length === 0
         ? <button onClick={handleLike} disabled={!user}>Like</button>
         : <button onClick={handleUnlike} disabled={!user}>Unlike</button>
       }
