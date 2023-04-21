@@ -7,13 +7,13 @@ import LogoutButton from './LogoutButton';
 function NavBar({ user }) {
   return (
     <nav>
+      <a href="">{user ? 'CMS' : 'Write for Us'}</a>
       {user
       ? <LogoutButton />
       : <>
         <Link to="/login">Login</Link>
         <Link to="/signup">Sign Up</Link>
       </>}
-      <a href="">Write for Us</a>
     </nav>
   );
 }
