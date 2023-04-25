@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { parseISO, format } from 'date-fns';
 import { PropTypes as PT } from 'prop-types';
-import { v2 } from 'cloudinary';
+
+import LikeCommentCounts from './LikeCommentCounts';
 
 function PostCard({ post }) {
   const uniqueTags = [...new Set(post.tags)];
@@ -19,9 +20,8 @@ function PostCard({ post }) {
       <div>
         {uniqueTags.map(tag => <p key={tag}>{tag}</p>)}
       </div>
-      <p>L{post.likesCount}</p>
-      <p>C{post.commentsCount}</p>
-      {post.imgUrl ? <img src={v2.url(post.imgUrl)} /> : null}
+      <LikeCommentCounts likes={post.likesCount} comments={post.commentsCount} />
+      {post.imgUrl ? <img src={post.imgUrl} /> : null}
     </div>
   );
 }

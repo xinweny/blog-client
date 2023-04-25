@@ -3,17 +3,17 @@ import { parseISO, format } from 'date-fns';
 import { PropTypes as PT } from 'prop-types';
 import parse from 'html-react-parser';
 
-import { sanitize } from '../utils/helpers';
-
 function BlogPost({ post }) {
   const [htmlString, setHtmlString] = useState('');
 
   useEffect(() => {
     if (post) {
+      console.log(post.text);
       const parser = new DOMParser();
-      const decodedString = parser.parseFromString(`<!doctype html><body>${post.text}`, 'text/html').body.textContent;
+      const preprocessedStr = parser.parseFromString(post.text, 'text/html').documentElement.textContent;
+      const decodedString = parser.parseFromString(preprocessedStr, 'text/html').documentElement.textContent;
 
-      setHtmlString(sanitize(decodedString));
+      setHtmlString(decodedString);
     }
   }, []);
 
@@ -21,10 +21,8 @@ function BlogPost({ post }) {
     <div>
       <h2>{post.title}</h2>
       <p>{format(parseISO(post.createdAt), 'do MMMM Y, hh:mm a')}</p>
-      {post.updatedAt
-        ? <p>Modified {format(parseISO(post.updatedAt), 'do MMMM Y, hh:mm a')}</p>
-        : null
-      }
+      {post.updatedAt && <p>Modified {format(parseISO(post.updatedAt), 'do MMMM Y, hh:mm a')}</p>}
+      {post.imgUrl && <img src={post.imgUrl} />}
       <div>{parse(htmlString)}</div>
     </div>
   );
@@ -36,6 +34,7 @@ BlogPost.propTypes = {
     text: PT.string.isRequired,
     createdAt: PT.string.isRequired,
     updatedAt: PT.string,
+    imgUrl: PT.string, 
   }),
 };
 
