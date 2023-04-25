@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useFetch, useLoading } from '../utils/hooks';
 
-import PostCard from './PostCard';
+import PostCardMini from './PostCardMini';
 import Spinner from './Spinner';
 
 function TopStories() {
@@ -15,7 +15,7 @@ function TopStories() {
       <div>
         {loaded
           ? posts.map(post => (
-            <PostCard key={post._id} post={post} />
+            <PostCardMini key={post._id} post={post} />
           ))
           : <Spinner options={{ type: 'ellipsis' }} />}
       </div>

@@ -4,24 +4,35 @@ import { parseISO, format } from 'date-fns';
 import { PropTypes as PT } from 'prop-types';
 
 import LikeCommentCounts from './LikeCommentCounts';
+import Tags from './Tags';
+
+import placeholderImg from '../assets/thumbnail-placeholder.png';
+
+import '../styles/PostCard.css';
 
 function PostCard({ post }) {
   const uniqueTags = [...new Set(post.tags)];
 
   return (
     <div className="post-card">
-      <Link to={`/users/${post.author._id}`}>
-        <p>{post.author.username}</p>
-      </Link>
-      <Link to={`/posts/${post._id}`}>
-        <h4>{post.title}</h4>
-      </Link>
-      <p>{format(parseISO(post.createdAt), 'd MMM Y')}</p>
-      <div>
-        {uniqueTags.map(tag => <p key={tag}>{tag}</p>)}
+      <div className="post-info">
+        <div>
+          <Link to={`/users/${post.author._id}`}>
+            <p className="post-card-author">{post.author.username}</p>
+          </Link>
+          <Link to={`/posts/${post._id}`}>
+            <h4 className="post-card-title">{post.title}</h4>
+          </Link>
+          <Tags tags={uniqueTags} />
+        </div>
+        <div className="counts-tags">
+          <p>{format(parseISO(post.createdAt), 'd MMM Y')}</p>
+          <LikeCommentCounts likes={post.likesCount} comments={post.commentsCount} />
+        </div>
       </div>
-      <LikeCommentCounts likes={post.likesCount} comments={post.commentsCount} />
-      {post.imgUrl ? <img src={post.imgUrl} /> : null}
+      <div className="post-thumbnail">
+        <img src={post.imgUrl || placeholderImg} />
+      </div>
     </div>
   );
 }

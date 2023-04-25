@@ -1,0 +1,44 @@
+.post-card {
+  display: flex;
+  justify-content: space-around;
+  width: 50vw;
+}
+
+.post-info {
+  flex: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+
+.post-info > div:first-child {
+  flex: auto;
+}
+
+.post-card-author {
+  font-size: small;
+}
+
+.post-card-title {
+  font-size: min(1.2em, 3vw);
+}
+
+.counts-tags {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: small;
+}
+
+.post-thumbnail {
+  height: min(150px, 15vw);
+  width: min(150px, 15vw);
+  overflow: hidden;
+  display: relative;
+}
+
+.post-thumbnail img {
+  max-width: 100%;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}

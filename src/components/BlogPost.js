@@ -8,7 +8,6 @@ function BlogPost({ post }) {
 
   useEffect(() => {
     if (post) {
-      console.log(post.text);
       const parser = new DOMParser();
       const preprocessedStr = parser.parseFromString(post.text, 'text/html').documentElement.textContent;
       const decodedString = parser.parseFromString(preprocessedStr, 'text/html').documentElement.textContent;
