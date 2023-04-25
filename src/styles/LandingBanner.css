@@ -5,3 +5,7 @@
   justify-content: center;
   gap: 16px;
 }
+
+.landing-banner p {
+  text-align: center;
+}
