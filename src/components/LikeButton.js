@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { PropTypes as PT } from 'prop-types';
 
 import { useFetch } from '../utils/hooks';
@@ -9,7 +9,7 @@ function LikeButton({ postId }) {
 
   const [likesCount, setLikesCount] = useFetch(`likes?post=${postId}&count=true`);
 
-  const [like, setLike] = useFetch(`likes?post=${postId}&user=${user.id}`);
+  const [like, setLike] = user ? useFetch(`likes?post=${postId}&user=${user.id}`) : useState(null);
 
   const handleLike = async () => {
     try {

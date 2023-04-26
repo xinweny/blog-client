@@ -1,7 +1,18 @@
 .app {
+  display: flex;
+  flex-direction: column;
   width: 100vw;
+  min-height: 100vh;
+}
+
+main {
+  flex: auto;
 }
 
 .font-small {
   font-size: small;
+}
+
+.form-error {
+  color: red;
 }
