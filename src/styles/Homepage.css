@@ -2,3 +2,10 @@
   display: grid;
   grid-template-columns: 2fr 1fr;
 }
+
+@media screen and (max-width: 992px) {
+  .home-tophalf {
+    grid-template-columns: 1fr;
+    width: 100vw;
+  }
+}

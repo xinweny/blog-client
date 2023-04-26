@@ -1,7 +1,6 @@
 .post-card {
   display: flex;
   justify-content: space-around;
-  width: 50vw;
 }
 
 .post-info {
@@ -30,15 +29,10 @@
   font-size: small;
 }
 
-.post-thumbnail {
-  height: min(150px, 15vw);
-  width: min(150px, 15vw);
-  overflow: hidden;
-  display: relative;
-}
-
 .post-thumbnail img {
-  max-width: 100%;
-  margin-left: 50%;
-  transform: translateX(-50%);
+  width: 25vw;
+  height: 25vw;
+  object-fit: cover;
+  max-width: 200px;
+  max-height: 200px;
 }

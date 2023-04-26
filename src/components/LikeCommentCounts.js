@@ -8,7 +8,7 @@ import '../styles/LikeCommentCounts.css'
 
 function LikeCommentCounts({ likes, comments }) {
   return (
-    <div className="lc-counts">
+    <div className="lc-counts font-small">
       <div>
         <img src={likeIcon} alt="Likes" />
         <p>{likes}</p>

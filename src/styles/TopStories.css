@@ -1,0 +1,24 @@
+.top-stories {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.top-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.top-posts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-auto-flow: column;
+  row-gap: 8px;
+  column-gap: 16px;
+}
+
+.top-stories > h3 {
+  text-align: center;
+}
