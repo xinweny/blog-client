@@ -1,0 +1,14 @@
+.like-btn-counter {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.like-btn {
+  border: none;
+  background-color: transparent;
+}
+
+.like-btn > svg {
+  width: 25px;
+}

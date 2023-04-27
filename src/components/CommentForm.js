@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 
 import { sendReq } from '../utils/helpers';
 
+import '../styles/CommentForm.css';
+
 function CommentForm({ postId, setComments }) {
   const [text, setText] = useState('');
   const user = JSON.parse(localStorage.getItem('user'));
@@ -35,7 +37,7 @@ function CommentForm({ postId, setComments }) {
   );
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="comment-form" onSubmit={handleSubmit}>
       <textarea
         name="text"
         id="text"
@@ -44,7 +46,7 @@ function CommentForm({ postId, setComments }) {
         required
         value={text}
       />
-      <p>Post as {user.username}</p>
+      <p>Posting as {user.username}</p>
       <button type="submit">Submit</button>
     </form>
   )

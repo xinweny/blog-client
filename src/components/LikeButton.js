@@ -4,12 +4,16 @@ import { PropTypes as PT } from 'prop-types';
 import { useFetch } from '../utils/hooks';
 import { sendReq, getStorageAuth } from '../utils/helpers';
 
+import { ReactComponent as LikeIcon } from '../assets/heart.svg';
+
+import '../styles/LikeButton.css';
+
 function LikeButton({ postId }) {
   const { user, token } = getStorageAuth();
 
   const [likesCount, setLikesCount] = useFetch(`likes?post=${postId}&count=true`);
 
-  const [like, setLike] = user ? useFetch(`likes?post=${postId}&user=${user.id}`) : useState(null);
+  const [like, setLike] = user ? useFetch(`likes?post=${postId}&user=${user.id}`, []) : useState([]);
 
   const handleLike = async () => {
     try {
@@ -32,7 +36,7 @@ function LikeButton({ postId }) {
 
       if (res.status === 200) {
         setLikesCount(prev => prev - 1);
-        setLike(null);
+        setLike([]);
       }
     } catch (err) {
       console.log(err);
@@ -40,11 +44,14 @@ function LikeButton({ postId }) {
   };
 
   return (
-    <div>
-      {!like || like.length === 0
-        ? <button onClick={handleLike} disabled={!user}>Like</button>
-        : <button onClick={handleUnlike} disabled={!user}>Unlike</button>
-      }
+    <div className="like-btn-counter">
+      <button className="like-btn" onClick={like.length === 0 ? handleLike : handleUnlike} disabled={!user}>
+      <LikeIcon
+        style={{
+          fill: like.length === 0 ? 'gray' : 'red',
+        }}
+      />
+      </button>
       <p>{likesCount}</p>
     </div>
   );

@@ -6,6 +6,8 @@ import { useFetch } from '../utils/hooks';
 
 import PostCard from '../components/PostCard';
 
+import '../styles/UserProfilePage.css';
+
 function UserProfilePage() {
   const { id } = useParams();
 
@@ -13,20 +15,20 @@ function UserProfilePage() {
   const [posts] = useFetch(`posts?author=${id}&published=true`);
 
   return (
-    <main>
-      {user && posts
-      ? <>
+    <main className="user-page">
+      {user && <div className="user-info">
         <h2>{user.username}</h2>
         <p>Joined on {format(parseISO(user.createdAt), 'd MMM Y')}</p>
-        <h3>Contributions</h3>
-        <div>
+      </div>}
+      {posts && <div>
+        <h3>Articles ({posts.length})</h3>
+        <div className="user-posts">
           {posts.map(post => <PostCard
             key={post._id}
             post={{...post, author: { _id: user._id, username: user.username }}}
           />)}
         </div>
-      </>
-      : null}
+      </div>}
     </main>
   );
 }

@@ -1,0 +1,18 @@
+.blog-post {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.post-image {
+  max-width: 75vw;
+  max-height: 500px;
+  height: auto;
+  flex: auto;
+  align-self: center;
+}
+
+.post-content {
+  padding: 24px;
+}

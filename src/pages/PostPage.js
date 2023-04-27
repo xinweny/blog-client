@@ -9,6 +9,9 @@ import CommentSection from '../components/CommentSection';
 import LikeButton from '../components/LikeButton';
 
 import Spinner from '../components/Spinner';
+import Tags from '../components/Tags';
+
+import '../styles/PostPage.css';
 
 function PostPage() {
   const { id } = useParams();
@@ -16,11 +19,14 @@ function PostPage() {
   const [loaded] = useLoading(post);
 
   return (
-    <main>
+    <main className="post-page">
       {loaded ? <>
         <AuthorCard authorId={post.author} />
         <BlogPost post={post} />
-        <LikeButton postId={id} />
+        <div className="post-end">
+          <LikeButton postId={id} />
+          <Tags tags={post.tags} />
+        </div>
         <CommentSection postId={id} />
       </> : <Spinner options={{ type: 'ellipsis' }} />}
     </main>

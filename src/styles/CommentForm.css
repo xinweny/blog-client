@@ -1,0 +1,15 @@
+.comment-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-form > p {
+  width: 100%;
+  text-align: right;
+  font-size: small;
+}
+
+.comment-form > button {
+  align-self: center;
+  margin-top: 16px;
+}

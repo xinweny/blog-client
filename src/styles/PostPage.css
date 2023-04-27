@@ -1,0 +1,13 @@
+.post-page {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 24px;
+}
+
+.post-end {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}

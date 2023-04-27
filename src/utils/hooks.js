@@ -19,8 +19,8 @@ const useStorageListener = key => {
   return data;
 };
 
-const useFetch = (query, deps = []) => {
-  const [data, setData] = useState();
+const useFetch = (query, initVal = null, deps = []) => {
+  const [data, setData] = useState(initVal);
 
   useEffect(() => {
     if (query) {

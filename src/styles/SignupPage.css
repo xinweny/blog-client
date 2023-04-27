@@ -19,5 +19,6 @@
 }
 
 .signup-form > button {
+  align-self: center;
   margin-top: 16px;
 }
