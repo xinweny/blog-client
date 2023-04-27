@@ -1,6 +1,7 @@
 import React from 'react';
 
 import githubLogo from '../assets/github-logo.svg';
+
 import '../styles/Footer.css';
 
 function Footer() {
