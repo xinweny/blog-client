@@ -4,13 +4,15 @@ import { Link } from 'react-router-dom';
 
 import { useFetch } from '../utils/hooks';
 
+import '../styles/AuthorCard.css';
+
 function AuthorCard({ authorId }) {
   const [author] = useFetch(`users/${authorId}`);
 
   if (!author) return null;
 
   return (
-    <div>
+    <div className="author-card">
       <Link to={`/users/${author._id}`}><p>{author.username}</p></Link>
     </div>
   );

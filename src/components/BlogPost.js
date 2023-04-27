@@ -14,8 +14,6 @@ function BlogPost({ post }) {
 
       const decodedString = parser.parseFromString(post.text, 'text/html').documentElement.textContent;
 
-      console.log(decodedString);
-
       setHtmlString(decodedString);
     }
   }, []);
