@@ -32,6 +32,10 @@ header nav {
   gap: 16px;
 }
 
+.logout-button {
+  font-size: medium;
+}
+
 @media screen and (max-width: 600px) {
   .site-branding h1 {
     display: none;
