@@ -1,5 +1,17 @@
+.post-card-mini {
+  display: flex;
+  flex-direction: column;
+}
+
 .post-card-mini > div {
   display: flex;
+  flex: auto;
   align-items: flex-end;
   justify-content: space-between;
+  margin-top: 4px;
+  font-family: 'CircularLight', sans-serif;
+}
+
+.post-card-mini h4 {
+  font-size: min(2.75vw, 16px);
 }

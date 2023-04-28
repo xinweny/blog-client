@@ -4,6 +4,7 @@ footer {
   justify-content: center;
   gap: 8px;
   padding: 8px;
+  background-color: rgb(208, 255, 230);
 }
 
 footer img {

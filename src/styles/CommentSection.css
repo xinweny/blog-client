@@ -4,8 +4,14 @@
   flex-direction: column;
   width: 75vw;
   gap: 16px;
+  border-top: 1px solid gray;
+  padding-top: 24px;
 }
 
 .comment-section h3 {
+  text-align: center;
+}
+
+.comment-section > p {
   text-align: center;
 }

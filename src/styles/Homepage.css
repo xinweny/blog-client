@@ -1,11 +1,15 @@
 .home-tophalf {
   display: grid;
   grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  border-bottom: 1px solid black;
+  background-color: rgb(208, 255, 230);
+  padding: 16px 0px;
 }
 
 @media screen and (max-width: 992px) {
   .home-tophalf {
     grid-template-columns: 1fr;
-    width: 100vw;
+    padding: 0px 16px;
   }
 }

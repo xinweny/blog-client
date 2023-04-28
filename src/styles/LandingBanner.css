@@ -5,8 +5,16 @@
   justify-content: center;
   gap: 16px;
   padding: 24px;
+  border-right: 1px solid black;
 }
 
 .landing-banner p {
   text-align: center;
+}
+
+@media screen and (max-width: 992px) {
+  .landing-banner {
+    border-right: none;
+    border-bottom: 1px solid black;
+  }
 }

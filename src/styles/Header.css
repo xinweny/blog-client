@@ -1,8 +1,11 @@
 header {
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 8px 16px;
+  border-bottom: 1px solid black;
+  background-color: rgb(208, 255, 230);
 }
 
 .site-branding {
@@ -12,8 +15,8 @@ header {
 }
 
 .site-branding img {
-  width: 60px;
-  height: 60px;
+  width: min(7.5vw, 60px);
+  height: auto;
 }
 
 .header-links {
@@ -26,5 +29,11 @@ header nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 16px;
+}
+
+@media screen and (max-width: 600px) {
+  .site-branding h1 {
+    display: none;
+  }
 }

@@ -33,7 +33,7 @@ function CommentForm({ postId, setComments }) {
   };
 
   if (!user) return (
-    <p><Link to="/login">Log in</Link> to post a comment!</p>
+    <p><Link to="/login"><strong>Log in</strong></Link> to post a comment!</p>
   );
 
   return (

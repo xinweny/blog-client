@@ -17,4 +17,5 @@
   font-family: 'Charter', serif;
   font-size: min(3vw, 18px);
   padding: 24px;
+  line-height: 150%;
 }
