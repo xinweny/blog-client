@@ -8,7 +8,7 @@ import '../styles/CommentCard.css';
 function CommentCard({ comment }) {
   return (
     <div className="comment-card">
-      <div>
+      <div className="comment-card-header">
         <Link to={`/users/${comment.author._id}`}>
           <p className="font-small">{comment.author.username}</p>
         </Link>

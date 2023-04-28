@@ -20,6 +20,7 @@
 
 .post-card-title {
   font-size: min(1.2em, 3vw);
+  margin-bottom: 8px;
 }
 
 .counts-tags {

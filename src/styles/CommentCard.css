@@ -1,4 +1,14 @@
-.comment-card > div {
+.comment-card-header {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.comment-card-header > a {
+  font-weight: bold;
+}
+
+.comment-card > p {
+  font-size: min(2.5vw, 16px);
+  font-family: 'CircularLight', sans-serif;
 }
