@@ -1,7 +1,7 @@
 # BlogTree Client
 A front-end blog client application for reading, commenting and liking articles. Built as part of *BlogTree*, a full-stack MERN blogging application developed as a project from the [The Odin Project JS Curriculum](https://www.theodinproject.com/paths/full-stack-javascript).
 
-Check out the live demo [here](https://blog-client-4h2npazs2-xinweny.vercel.app/)!
+Check out the live demo [here](https://blog-client-amber.vercel.app/)!
 
 ## Links
 🍃 [BlogTree CMS](https://github.com/xinweny/blog-cms/)
