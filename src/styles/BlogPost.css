@@ -19,3 +19,7 @@
   padding: 24px;
   line-height: 150%;
 }
+
+.post-content a {
+  text-decoration: underline;
+}

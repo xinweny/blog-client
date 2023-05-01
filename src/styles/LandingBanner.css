@@ -16,5 +16,6 @@
   .landing-banner {
     border-right: none;
     border-bottom: 1px solid black;
+    padding: 32px;
   }
 }

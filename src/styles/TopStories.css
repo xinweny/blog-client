@@ -24,3 +24,9 @@
 .top-stories > h3 {
   text-align: center;
 }
+
+@media screen and (max-width: 992px) {
+  .top-stories {
+    padding: 16px 16px 32px 16px;
+  }
+}
